@@ -1,5 +1,6 @@
 import { app, BrowserWindow, nativeTheme } from 'electron'
 import path from 'path'
+import { autoUpdater } from 'electron-updater'
 
 try {
   if (process.platform === 'win32' && nativeTheme.shouldUseDarkColors === true) {
@@ -41,7 +42,10 @@ function createWindow () {
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  autoUpdater.checkForUpdatesAndNotify()
+  createWindow()
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
