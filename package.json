@@ -7,16 +7,21 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
+    "build": "quasar build -m electron -P never",
+    "release": "quasar build -m electron -P onTagOrDraft",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
+    "electron-updater": "^4.3.9",
     "quasar": "^2.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "@quasar/app": "^3.0.0",
+    "electron": "^13.1.6",
+    "electron-builder": "^22.4.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.0.0",
